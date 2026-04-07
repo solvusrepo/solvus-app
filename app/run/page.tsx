@@ -159,17 +159,17 @@ export default function RunDemoPage() {
       </div>
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <nav className="mb-6 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
-          <div><div className="text-xs uppercase tracking-[0.24em] text-white/40">Autonomous Execution Engine</div><div className="mt-2 text-2xl font-semibold tracking-tight">Percolypse / Run</div></div>
+          <div><div className="text-xs uppercase tracking-[0.24em] text-white/40">Institutional Stablecoin Control Plane</div><div className="mt-2 text-2xl font-semibold tracking-tight">SoLvUs / Run</div></div>
           <div className="flex items-center gap-3 text-xs text-white/45"><div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-emerald-300">visual demo</div><div className="rounded-full border border-white/10 px-3 py-1.5">vercel-ready</div></div>
         </nav>
         <header className="mb-8 grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-white/40">State → Signal → Action</p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">Runtime dashboard visual demo for autonomous execution.</h1>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/58 sm:text-base">This page is a front-end only simulation designed to feel live without any backend, wallet, database, or real chain connection.</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Compliance → Control → Execution</p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">Runtime dashboard visual demo for institutional stablecoin operations.</h1>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/58 sm:text-base">This page is a front-end only simulation designed to feel live without any backend, database, compliance engine, or real chain connection.</p>
           </div>
           <div className="rounded-3xl border border-white/10 bg-black/30 p-4 font-mono text-xs text-emerald-300 shadow-2xl shadow-black/30">
-            <div className="mb-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/35"><span>Runtime shell</span><span>$ percolypse --mode=autonomous</span></div>
+            <div className="mb-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/35"><span>Runtime shell</span><span>$ solvus --mode=autonomous</span></div>
             <div className="space-y-2">{terminal.slice(-4).map((line, index) => <div key={`${line}-${index}`} className="truncate"><span className="text-white/35">&gt;</span> {line}</div>)}</div>
           </div>
         </header>
