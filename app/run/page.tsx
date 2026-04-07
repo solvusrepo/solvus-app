@@ -321,27 +321,27 @@ export default function RunDemoPage() {
   return (
     <main className="min-h-screen bg-[#05070b] text-white">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#03040a,#05070b,#04050b)]" />
+  <div className="absolute inset-0 bg-[#05070b]" />
 
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(196,181,253,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(244,114,182,0.10),transparent_28%),radial-gradient(circle_at_right,rgba(168,85,247,0.10),transparent_24%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,180,254,0.22),transparent_32%),radial-gradient(circle_at_left_bottom,rgba(244,114,182,0.12),transparent_28%),radial-gradient(circle_at_right_center,rgba(168,85,247,0.14),transparent_26%)]" />
 
-  <div className="absolute left-1/2 top-[-18rem] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-violet-300/14 blur-3xl" />
-  <div className="absolute bottom-[-10rem] left-[-6rem] h-[26rem] w-[26rem] rounded-full bg-fuchsia-300/10 blur-3xl" />
-  <div className="absolute right-[-8rem] top-[26%] h-[24rem] w-[24rem] rounded-full bg-violet-500/10 blur-3xl" />
+  <div className="absolute left-1/2 top-[-16rem] h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-violet-300/20 blur-3xl" />
+  <div className="absolute left-[-8rem] top-[45%] h-[26rem] w-[26rem] rounded-full bg-fuchsia-300/12 blur-3xl" />
+  <div className="absolute right-[-8rem] top-[20%] h-[28rem] w-[28rem] rounded-full bg-violet-400/16 blur-3xl" />
 
   <div
-    className="absolute inset-0 opacity-[0.07]"
+    className="absolute inset-0 opacity-[0.08]"
     style={{
       backgroundImage:
-        'linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px)',
-      backgroundSize: '44px 44px',
+        'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
+      backgroundSize: '48px 48px',
     }}
   />
 
-  <div className="absolute inset-0 opacity-[0.10] bg-[linear-gradient(115deg,transparent_15%,rgba(196,181,253,0.08)_40%,transparent_68%)]" />
-  <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(300deg,transparent_20%,rgba(244,114,182,0.06)_48%,transparent_75%)]" />
+  <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(120deg,transparent_20%,rgba(196,181,253,0.10)_42%,transparent_68%)]" />
+  <div className="absolute inset-0 opacity-[0.10] bg-[linear-gradient(300deg,transparent_24%,rgba(244,114,182,0.08)_50%,transparent_76%)]" />
 
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_52%,rgba(0,0,0,0.42)_100%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.45)_100%)]" />
 </div>
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
