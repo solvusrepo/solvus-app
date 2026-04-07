@@ -57,8 +57,8 @@ const chainsBase: Chain[] = [
 const signalBase: SignalItem[] = [
   {
     id: 1,
-    title: 'Issuance request entered review',
-    detail: 'compliance queue opened for institutional mint batch',
+    title: 'Institutional mint window opened',
+    detail: 'compliance queue opened for treasury review batch',
     time: '2s ago',
     level: 'high',
   },
@@ -72,7 +72,7 @@ const signalBase: SignalItem[] = [
   {
     id: 3,
     title: 'Settlement signal awaiting confirmation',
-    detail: 'control threshold met, gating review window',
+    detail: 'control threshold met, gating approval window',
     time: '16s ago',
     level: 'low',
   },
@@ -128,7 +128,7 @@ function StatusDot({ tone = 'violet' }: { tone?: 'violet' | 'amber' | 'slate' })
   return (
     <span
       className={classNames(
-        'inline-block h-2.5 w-2.5 rounded-full shadow-[0_0_12px]',
+        'inline-block h-2.5 w-2.5 rounded-full shadow-[0_0_14px]',
         toneClass,
         'animate-pulse',
       )}
@@ -138,7 +138,7 @@ function StatusDot({ tone = 'violet' }: { tone?: 'violet' | 'amber' | 'slate' })
 
 function MetricCard({ metric }: { metric: Metric }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 backdrop-blur-sm">
       <div className="text-[11px] uppercase tracking-[0.18em] text-white/45">{metric.label}</div>
       <div className="mt-3 text-2xl font-semibold tracking-tight text-white">{metric.value}</div>
       {metric.sublabel ? <div className="mt-2 text-xs text-white/45">{metric.sublabel}</div> : null}
@@ -149,7 +149,7 @@ function MetricCard({ metric }: { metric: Metric }) {
 function ChainPill({ chain }: { chain: Chain }) {
   const tone = chain.status === 'online' ? 'violet' : chain.status === 'degraded' ? 'amber' : 'slate';
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3 backdrop-blur-sm">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <StatusDot tone={tone} />
@@ -175,7 +175,7 @@ function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-2xl shadow-black/20 backdrop-blur-sm">
+    <section className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-2xl shadow-black/20 backdrop-blur-sm">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h2 className="text-sm font-medium uppercase tracking-[0.18em] text-white/55">{title}</h2>
@@ -319,52 +319,64 @@ export default function RunDemoPage() {
   }, [executions]);
 
   return (
-    <main className="min-h-screen bg-[#05070b] text-white">
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-  <div className="absolute inset-0 bg-[#05070b]" />
+    <main className="relative min-h-screen overflow-hidden bg-[#05070b] text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[#05070b]" />
 
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,180,254,0.22),transparent_32%),radial-gradient(circle_at_left_bottom,rgba(244,114,182,0.12),transparent_28%),radial-gradient(circle_at_right_center,rgba(168,85,247,0.14),transparent_26%)]" />
+        <div className="absolute inset-0 opacity-100 bg-[radial-gradient(circle_at_18%_18%,rgba(216,180,254,0.18),transparent_18%),radial-gradient(circle_at_82%_20%,rgba(168,85,247,0.20),transparent_20%),radial-gradient(circle_at_20%_82%,rgba(244,114,182,0.14),transparent_20%),radial-gradient(circle_at_78%_78%,rgba(196,181,253,0.14),transparent_22%)]" />
 
-  <div className="absolute left-1/2 top-[-16rem] h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-violet-300/20 blur-3xl" />
-  <div className="absolute left-[-8rem] top-[45%] h-[26rem] w-[26rem] rounded-full bg-fuchsia-300/12 blur-3xl" />
-  <div className="absolute right-[-8rem] top-[20%] h-[28rem] w-[28rem] rounded-full bg-violet-400/16 blur-3xl" />
+        <div className="absolute left-[-10%] top-[-8%] h-[34rem] w-[34rem] rounded-full bg-violet-300/18 blur-[120px]" />
+        <div className="absolute right-[-8%] top-[8%] h-[32rem] w-[32rem] rounded-full bg-violet-500/18 blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[14%] h-[28rem] w-[28rem] rounded-full bg-fuchsia-300/12 blur-[120px]" />
+        <div className="absolute left-1/2 top-[6%] h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-violet-400/10 blur-[140px]" />
 
-  <div
-    className="absolute inset-0 opacity-[0.08]"
-    style={{
-      backgroundImage:
-        'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
-      backgroundSize: '48px 48px',
-    }}
-  />
+        <div className="absolute inset-0 opacity-[0.10] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:56px_56px]" />
 
-  <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(120deg,transparent_20%,rgba(196,181,253,0.10)_42%,transparent_68%)]" />
-  <div className="absolute inset-0 opacity-[0.10] bg-[linear-gradient(300deg,transparent_24%,rgba(244,114,182,0.08)_50%,transparent_76%)]" />
+        <div className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(115deg,transparent_0%,transparent_38%,rgba(196,181,253,0.16)_50%,transparent_62%,transparent_100%)]" />
+        <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(32deg,transparent_0%,transparent_44%,rgba(244,114,182,0.12)_50%,transparent_56%,transparent_100%)]" />
+        <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(145deg,transparent_0%,transparent_46%,rgba(167,139,250,0.14)_50%,transparent_54%,transparent_100%)]" />
 
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.45)_100%)]" />
-</div>
+        <svg className="absolute inset-0 h-full w-full opacity-[0.16]" viewBox="0 0 1600 1200" fill="none" preserveAspectRatio="none">
+          <path d="M0 930 C 220 830, 340 840, 520 760 S 860 610, 1100 680 S 1410 860, 1600 740" stroke="url(#lineA)" strokeWidth="1.2" />
+          <path d="M0 790 C 260 690, 420 720, 620 620 S 1010 470, 1600 540" stroke="url(#lineB)" strokeWidth="1" />
+          <path d="M210 0 C 260 250, 450 410, 720 520 S 1180 660, 1410 1200" stroke="url(#lineC)" strokeWidth="1" />
+          <defs>
+            <linearGradient id="lineA" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stopColor="rgba(196,181,253,0)" />
+              <stop offset="0.5" stopColor="#c4b5fd" />
+              <stop offset="1" stopColor="rgba(196,181,253,0)" />
+            </linearGradient>
+            <linearGradient id="lineB" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stopColor="rgba(244,114,182,0)" />
+              <stop offset="0.5" stopColor="#f472b6" />
+              <stop offset="1" stopColor="rgba(244,114,182,0)" />
+            </linearGradient>
+            <linearGradient id="lineC" x1="0" y1="0" x2="0" y2="1200" gradientUnits="userSpaceOnUse">
+              <stop stopColor="rgba(167,139,250,0)" />
+              <stop offset="0.45" stopColor="#a78bfa" />
+              <stop offset="1" stopColor="rgba(167,139,250,0)" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_44%,rgba(0,0,0,0.42)_100%)]" />
+      </div>
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <nav className="mb-6 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <div className="text-xs uppercase tracking-[0.24em] text-white/40">
-              Institutional Stablecoin Control Plane
-            </div>
+            <div className="text-xs uppercase tracking-[0.24em] text-white/40">Institutional Stablecoin Control Plane</div>
             <div className="mt-2 text-2xl font-semibold tracking-tight">SoLvUs / Run</div>
           </div>
           <div className="flex items-center gap-3 text-xs text-white/45">
-            <div className="rounded-full border border-violet-400/25 bg-violet-400/12 px-3 py-1.5 text-violet-200">
-              visual demo
-            </div>
+            <div className="rounded-full border border-violet-400/25 bg-violet-400/12 px-3 py-1.5 text-violet-200">visual demo</div>
             <div className="rounded-full border border-white/10 px-3 py-1.5">vercel-ready</div>
           </div>
         </nav>
 
         <header className="mb-8 grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-white/40">
-              Compliance → Control → Execution
-            </p>
+            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Compliance → Control → Execution</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Runtime dashboard visual demo for institutional stablecoin operations.
             </h1>
@@ -374,7 +386,7 @@ export default function RunDemoPage() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-black/30 p-4 font-mono text-xs text-violet-200 shadow-2xl shadow-black/30">
+          <div className="rounded-3xl border border-white/10 bg-black/30 p-4 font-mono text-xs text-violet-200 shadow-2xl shadow-black/30 backdrop-blur-sm">
             <div className="mb-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/35">
               <span>Operations shell</span>
               <span>$ solvus --mode=control-plane</span>
@@ -413,18 +425,13 @@ export default function RunDemoPage() {
                       : 'border-white/10 bg-white/5 text-white/60';
 
                 return (
-                  <div key={signal.id} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div key={signal.id} className="rounded-2xl border border-white/10 bg-black/20 p-4 backdrop-blur-sm">
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <div className="text-sm font-medium text-white">{signal.title}</div>
                         <div className="mt-1 text-sm text-white/45">{signal.detail}</div>
                       </div>
-                      <div
-                        className={classNames(
-                          'rounded-full border px-2.5 py-1 text-[11px] uppercase tracking-[0.16em]',
-                          badgeClass,
-                        )}
-                      >
+                      <div className={classNames('rounded-full border px-2.5 py-1 text-[11px] uppercase tracking-[0.16em]', badgeClass)}>
                         {signal.level}
                       </div>
                     </div>
@@ -456,18 +463,15 @@ export default function RunDemoPage() {
           <SectionCard title="Active pipelines" subtitle="Core control modules shown as active surfaces.">
             <div className="space-y-3">
               {pipelineBase.map((pipeline) => {
-                const tone =
-                  pipeline.status === 'active' ? 'violet' : pipeline.status === 'warming' ? 'amber' : 'slate';
+                const tone = pipeline.status === 'active' ? 'violet' : pipeline.status === 'warming' ? 'amber' : 'slate';
                 return (
-                  <div key={pipeline.name} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div key={pipeline.name} className="rounded-2xl border border-white/10 bg-black/20 p-4 backdrop-blur-sm">
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2">
                         <StatusDot tone={tone} />
                         <div className="text-sm font-medium text-white">{pipeline.name}</div>
                       </div>
-                      <div className="text-[11px] uppercase tracking-[0.16em] text-white/40">
-                        {pipeline.status}
-                      </div>
+                      <div className="text-[11px] uppercase tracking-[0.16em] text-white/40">{pipeline.status}</div>
                     </div>
                     <div className="mt-2 text-xs text-white/40">{pipeline.throughput}</div>
                   </div>
